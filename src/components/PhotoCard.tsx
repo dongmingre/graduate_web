@@ -56,6 +56,8 @@ export function PhotoCard({ photo, layout, onSelect }: PhotoCardProps) {
     const draggable = Draggable.create(card, {
       type: 'x,y',
       bounds: board ?? undefined,
+      cursor: 'var(--cursor-chalk), grab',
+      activeCursor: 'var(--cursor-chalk-press), grabbing',
       edgeResistance: 0.68,
       zIndexBoost: true,
       onClick() {
