@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { ChalkDustCursor } from './components/ChalkDustCursor';
 import { PhotoCard } from './components/PhotoCard';
 import { Lightbox } from './components/Lightbox';
 import { getCardLayout } from './layout';
@@ -67,6 +68,7 @@ export default function App() {
       <p className="interaction-hint">✦ 文艺青年 ✦</p>
       <div className="letterbox" />
       <div className="film-grain" />
+      <ChalkDustCursor />
 
       <Lightbox
         photo={selected}

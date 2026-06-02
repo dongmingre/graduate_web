@@ -6,8 +6,8 @@
   --accent: #f0c27b;
   --wood: #765030;
   --ink: #171817;
-  --cursor-chalk: url("./assets/cursors/chalk.png") 10 56;
-  --cursor-chalk-press: url("./assets/cursors/chalk-press.png") 10 56;
+  --cursor-chalk: url("./assets/cursors/chalk.png") 10 50;
+  --cursor-chalk-press: url("./assets/cursors/chalk-press.png") 10 50;
 }
 
 * {
@@ -110,6 +110,28 @@ button:active {
   background-image: radial-gradient(circle, rgba(255, 255, 255, .85) 0 .7px, transparent 1px);
   background-size: 4px 4px;
   animation: grain 1.4s steps(6) infinite;
+}
+
+.chalk-dust-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.chalk-dust-particle {
+  position: absolute;
+  width: var(--dust-size);
+  height: var(--dust-size);
+  border-radius: 50%;
+  background: rgba(247, 247, 239, var(--dust-alpha));
+  box-shadow: 0 0 5px rgba(247, 247, 239, .22);
+  filter: blur(.1px);
+  transform: translate(-50%, -50%) scale(1);
+  animation: chalkDustDrift var(--dust-duration) ease-out forwards;
+  will-change: transform, opacity, filter;
 }
 
 .hero-title {
@@ -682,6 +704,20 @@ button:active {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chalkDustDrift {
+  to {
+    opacity: 0;
+    filter: blur(.9px);
+    transform: translate(calc(-50% + var(--dust-x)), calc(-50% + var(--dust-y))) scale(.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chalk-dust-layer {
+    display: none;
   }
 }
 
