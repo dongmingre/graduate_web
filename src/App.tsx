@@ -4,6 +4,8 @@ import { Lightbox } from './components/Lightbox';
 import { getCardLayout } from './layout';
 import { photos, type Photo } from './photoData';
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export default function App() {
   const [selected, setSelected] = useState<Photo | null>(null);
 
@@ -40,7 +42,7 @@ export default function App() {
         </svg>
       </section>
 
-      <img className="school-logo" src="/chalk-doodle-logo.svg" alt="安徽理工大学" />
+      <img className="school-logo" src={publicAsset('chalk-doodle-logo.svg')} alt="安徽理工大学" />
       <span className="chalk-note chalk-note-left">stay gold</span>
       <svg className="chalk-doodle" viewBox="0 0 560 250" aria-label="毕业快乐纸飞机涂鸦">
         <text className="chalk-doodle-text" x="30" y="104">
@@ -54,7 +56,7 @@ export default function App() {
       </svg>
       <span className="chalk-note chalk-note-bottom">one last frame</span>
 
-      <img className="campus-doodle" src="/building_chalk.svg" alt="计算机科学与工程学院楼粉笔线稿" />
+      <img className="campus-doodle" src={publicAsset('building_chalk.svg')} alt="计算机科学与工程学院楼粉笔线稿" />
 
       <section className="photo-field" aria-label="毕业照片墙">
         {photos.map((photo, index) => (

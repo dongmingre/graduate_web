@@ -57,10 +57,12 @@ const ratioCycle: Photo['ratio'][] = [
   'landscape',
 ];
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const photos: Photo[] = Array.from({ length: 38 }, (_, index) => ({
   id: index + 1,
-  thumbSrc: `/pic/thumbs/${index + 1}.webp`,
-  fullSrc: `/pic/full/${index + 1}.webp`,
+  thumbSrc: publicAsset(`pic/thumbs/${index + 1}.webp`),
+  fullSrc: publicAsset(`pic/full/${index + 1}.webp`),
   caption: captions[index][0],
   note: captions[index][1],
   ratio: ratioCycle[index % ratioCycle.length],
