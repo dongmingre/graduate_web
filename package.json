@@ -8,6 +8,7 @@
     "build": "npm run typecheck && vite build",
     "preview": "vite preview",
     "test:chalk-cursor": "node scripts/verify-chalk-cursor.mjs",
+    "test:mobile-lightbox": "node scripts/verify-mobile-lightbox-targets.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json"
   },
   "dependencies": {
